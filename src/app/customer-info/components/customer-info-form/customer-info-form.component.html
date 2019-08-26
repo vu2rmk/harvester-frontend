@@ -1,0 +1,47 @@
+<mat-card>
+    {{this.custInfoForm.value | json}}
+    <form class="example-container" [formGroup] = "custInfoForm" novalidate (ngSubmit) = "onSubmit()">
+        
+        <mat-form-field>
+            <input matInput placeholder="Custcode" formControlName="custcode">
+            <mat-error *ngIf="custInfoForm.controls.custcode.invalid && custInfoForm.controls.custcode.touched">Customer Code is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Customer Name" formControlName="custname">
+            <mat-error *ngIf="custInfoForm.controls.custname.invalid && custInfoForm.controls.custname.touched">Customer Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Address 1" formControlName="address1">
+            <mat-error *ngIf="custInfoForm.controls.address1.invalid && custInfoForm.controls.address1.touched">Address 1 is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Address 2" formControlName="address2">
+            <mat-error *ngIf="custInfoForm.controls.address2.invalid && custInfoForm.controls.address2.touched">Address 2 is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Phone" type="number" formControlName="phone">
+            <mat-error *ngIf="custInfoForm.controls.phone.invalid && custInfoForm.controls.phone.touched">Phone is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Mobile" type="number" formControlName="mobile">
+            <mat-error *ngIf="custInfoForm.controls.mobile.invalid && custInfoForm.controls.mobile.touched">Mobile is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" type="email" formControlName="email">
+            <mat-error *ngIf="custInfoForm.controls.email.invalid && custInfoForm.controls.email.touched">Email is not proper</mat-error>
+        </mat-form-field>
+
+
+        <div>
+            <button mat-raised-button type="submit" color="primary">Save</button>
+            <button mat-raised-button type="reset">Cancel</button>
+        </div>
+    </form>
+
+</mat-card>
