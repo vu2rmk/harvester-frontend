@@ -8,6 +8,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DashboardMainComponent } from './components/dashboard-main/dashboard-main.component';
 import { DashboardContentComponent } from './components/dashboard-content/dashboard-content.component';
 import { CustomerInfoModule } from '../customer-info/customer-info.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from '../core/services/http-interceptor.service';
 
 
 @NgModule({
@@ -18,6 +20,9 @@ import { CustomerInfoModule } from '../customer-info/customer-info.module';
     CustomerInfoModule,
     MaterialModule,
     NgbModule
-  ]
+  ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true
+  }]
 })
 export class DashboardModule { }
